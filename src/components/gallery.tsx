@@ -6,34 +6,6 @@ type ImageData = {
   description: string;
 };
 
-const images: ImageData[] = [
-  {
-    imageSrc: "https://picsum.photos/id/237/200/300",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, unde?",
-  },
-  {
-    imageSrc: "https://picsum.photos/id/237/200/300",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, unde?",
-  },
-  {
-    imageSrc: "https://picsum.photos/id/237/200/300",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, unde?",
-  },
-  {
-    imageSrc: "https://picsum.photos/id/255/200/300",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, unde?",
-  },
-  {
-    imageSrc: "https://picsum.photos/id/23/200/300",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, unde?",
-  },
-];
-
 export const Gallery = () => {
   const [data, setData] = useState(null);
   const [search, setSearch] = useState(null);
@@ -41,7 +13,7 @@ export const Gallery = () => {
   useEffect(() => {
     let ignore = false;
     if (!ignore) {
-      fetch(`https://api.unsplash.com/search/photos?query=${"horse"}`, {
+      fetch(`https://api.unsplash.com/search/photos?query=${"duck"}`, {
         headers: {
           Authorization: `Client-ID ${import.meta.env.VITE_API_KEY}`,
         },
@@ -57,15 +29,19 @@ export const Gallery = () => {
   return (
     <>
       <div>
-        {images.map((image, index) => {
-          return (
-            <ImageCard
-              key={index}
-              imageSrc={image.imageSrc}
-              description={image.description}
-            />
-          );
-        })}
+        {data ? (
+          data.results.map((image, index) => {
+            return (
+              <ImageCard
+                key={index}
+                imageSrc={image.urls.small}
+                description={image.description}
+              />
+            );
+          })
+        ) : (
+          <p>Nothing here</p>
+        )}
       </div>
       <button>Prev</button>
       <button>Next</button>
