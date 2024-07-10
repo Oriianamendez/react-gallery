@@ -17,8 +17,11 @@ export const Gallery = () => {
 
   useEffect(() => {
     let ignore = false;
+    if (!search) {
+      return;
+    }
     if (!ignore) {
-      fetch(`https://api.unsplash.com/search/photos?query=${"duck"}`, {
+      fetch(`https://api.unsplash.com/search/photos?query=${search}`, {
         headers: {
           Authorization: `Client-ID ${import.meta.env.VITE_API_KEY}`,
         },

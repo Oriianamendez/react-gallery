@@ -20,7 +20,9 @@ export const Search = ({ onSearch }: Props) => {
           setInput(e.target.value);
         }}
       />
-      <button onClick={() => handleSubmit}>Search</button>
+      <button type="button" onClick={() => handleSubmit()}>
+        Search
+      </button>
     </form>
   );
 };
