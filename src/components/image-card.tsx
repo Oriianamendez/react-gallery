@@ -1,10 +1,13 @@
-export const ImageCard = () => {
+type Params = {
+  imageSrc: string;
+  description: string;
+};
+
+export const ImageCard = ({ imageSrc, description }: Params) => {
   return (
     <article>
-      <img src="" alt="image" />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, amet.
-      </p>
+      <img src={imageSrc} alt="image" />
+      <p>{description}</p>
     </article>
   );
 };
