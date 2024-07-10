@@ -28,7 +28,7 @@ const images: ImageData[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, unde?",
   },
   {
-    imageSrc: "https://picsum.photos/id/237/200/300",
+    imageSrc: "https://picsum.photos/id/23/200/300",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, unde?",
   },
@@ -36,6 +36,7 @@ const images: ImageData[] = [
 
 export const Gallery = () => {
   const [data, setData] = useState(null);
+  const [search, setSearch] = useState(null);
 
   useEffect(() => {
     let ignore = false;
@@ -51,8 +52,8 @@ export const Gallery = () => {
     return () => {
       ignore = true;
     };
-  }, []);
-  console.log(data);
+  }, [search]);
+
   return (
     <>
       <div>
