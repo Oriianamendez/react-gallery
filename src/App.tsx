@@ -10,8 +10,6 @@ function App() {
       <main>
         <Search />
         <Gallery />
-        <button>Prev</button>
-        <button>Next</button>
       </main>
     </>
   );

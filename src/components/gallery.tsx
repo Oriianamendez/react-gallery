@@ -22,7 +22,7 @@ const images: ImageData[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, unde?",
   },
   {
-    imageSrc: "https://picsum.photos/id/237/200/300",
+    imageSrc: "https://picsum.photos/id/255/200/300",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, unde?",
   },
@@ -35,16 +35,20 @@ const images: ImageData[] = [
 
 export const Gallery = () => {
   return (
-    <div>
-      {images.map((image, index) => {
-        return (
-          <ImageCard
-            key={index}
-            imageSrc={image.imageSrc}
-            description={image.description}
-          />
-        );
-      })}
-    </div>
+    <>
+      <div>
+        {images.map((image, index) => {
+          return (
+            <ImageCard
+              key={index}
+              imageSrc={image.imageSrc}
+              description={image.description}
+            />
+          );
+        })}
+      </div>
+      <button>Prev</button>
+      <button>Next</button>
+    </>
   );
 };
