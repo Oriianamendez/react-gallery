@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ImageCard } from "./image-card";
 
 type ImageData = {
@@ -34,6 +35,15 @@ const images: ImageData[] = [
 ];
 
 export const Gallery = () => {
+  useEffect(() => {
+    let ignore = false;
+    if (!ignore) {
+      console.log("something");
+    }
+    return () => {
+      ignore = true;
+    };
+  }, []);
   return (
     <>
       <div>
