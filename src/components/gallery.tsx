@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ImageCard } from "./image-card";
 
 type ImageData = {
@@ -35,25 +35,24 @@ const images: ImageData[] = [
 ];
 
 export const Gallery = () => {
+  const [data, setData] = useState(null);
+
   useEffect(() => {
     let ignore = false;
     if (!ignore) {
-      const res = fetch(
-        `https://api.unsplash.com/search/photos?query=${"horse"}`,
-        {
-          headers: {
-            Authorization: `Client-ID ${import.meta.env.VITE_API_KEY}`,
-          },
-        }
-      )
+      fetch(`https://api.unsplash.com/search/photos?query=${"horse"}`, {
+        headers: {
+          Authorization: `Client-ID ${import.meta.env.VITE_API_KEY}`,
+        },
+      })
         .then((res) => res.json())
-        .then((res) => console.log(res));
-      console.log(res);
+        .then((res) => setData(res));
     }
     return () => {
       ignore = true;
     };
   }, []);
+  console.log(data);
   return (
     <>
       <div>
