@@ -1,6 +1,5 @@
 import "./App.css";
 import { Header } from "./components/header";
-import { Search } from "./components/search";
 import { Gallery } from "./components/gallery";
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
     <>
       <Header />
       <main>
-        <Search />
         <Gallery />
       </main>
     </>

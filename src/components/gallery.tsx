@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ImageCard } from "./image-card";
+import { Search } from "./search";
 
 type ImageData = {
   imageSrc: string;
@@ -8,7 +9,11 @@ type ImageData = {
 
 export const Gallery = () => {
   const [data, setData] = useState(null);
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState<string | null>(null);
+
+  const onSearch = (query: string) => {
+    setSearch(query);
+  };
 
   useEffect(() => {
     let ignore = false;
@@ -28,6 +33,7 @@ export const Gallery = () => {
 
   return (
     <>
+      <Search onSearch={onSearch} />
       <div>
         {data ? (
           data.results.map((image, index) => {
