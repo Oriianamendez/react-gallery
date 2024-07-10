@@ -38,7 +38,17 @@ export const Gallery = () => {
   useEffect(() => {
     let ignore = false;
     if (!ignore) {
-      console.log("something");
+      const res = fetch(
+        `https://api.unsplash.com/search/photos?query=${"horse"}`,
+        {
+          headers: {
+            Authorization: `Client-ID ${import.meta.env.VITE_API_KEY}`,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((res) => console.log(res));
+      console.log(res);
     }
     return () => {
       ignore = true;
