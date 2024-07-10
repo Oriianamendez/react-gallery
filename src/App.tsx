@@ -1,15 +1,13 @@
 import "./App.css";
 import { Header } from "./components/header";
+import { Search } from "./components/search";
 
 function App() {
   return (
     <>
       <Header />
       <main>
-        <form action="">
-          <input type="text" name="" id="" />
-          <button>Search</button>
-        </form>
+        <Search />
         <div>
           <article>
             <img src="" alt="image" />
