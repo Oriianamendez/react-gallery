@@ -1,9 +1,10 @@
 import "./App.css";
+import { Header } from "./components/header";
 
 function App() {
   return (
     <>
-      <header>HEADER</header>
+      <Header />
       <main>
         <form action="">
           <input type="text" name="" id="" />
