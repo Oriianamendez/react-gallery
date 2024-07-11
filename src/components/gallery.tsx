@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ImageCard } from "./image-card";
 import { Search } from "./search";
+import { useQuery } from "@tanstack/react-query";
 
 type ImageData = {
   imageSrc: string;
