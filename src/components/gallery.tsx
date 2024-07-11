@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { ImageCard } from "./image-card";
 import { Search } from "./search";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
+import { getImages } from "../services/services";
 
 type ImageData = {
   imageSrc: string;
@@ -22,13 +23,7 @@ export const Gallery = () => {
       return;
     }
     if (!ignore) {
-      fetch(`https://api.unsplash.com/search/photos?query=${search}`, {
-        headers: {
-          Authorization: `Client-ID ${import.meta.env.VITE_API_KEY}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((res) => setData(res));
+      getImages(search).then((res) => setData(res));
     }
     return () => {
       ignore = true;
