@@ -10,7 +10,6 @@ type ImageData = {
 };
 
 export const Gallery = () => {
-  //const [images, setImages] = useState(null);
   const [search, setSearch] = useState<string | null>(null);
 
   const onSearch = (query: string) => {
@@ -18,7 +17,7 @@ export const Gallery = () => {
   };
 
   const { data } = useQuery({
-    queryKey: ["something"],
+    queryKey: ["images", search],
     queryFn: async () => {
       const response = await fetch(
         `https://api.unsplash.com/search/photos?query=${search}`,
@@ -31,7 +30,6 @@ export const Gallery = () => {
       return response.json();
     },
   });
-  console.log({ data });
 
   return (
     <>
