@@ -3,6 +3,10 @@ body {
   max-width: 60rem;
 }
 
+header {
+  margin: 0.5rem;
+}
+
 .logo {
   height: 3rem;
   width: 3rem;
