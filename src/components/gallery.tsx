@@ -11,6 +11,7 @@ type ImageData = {
 
 export const Gallery = () => {
   const [search, setSearch] = useState<string | null>(null);
+  const [page, setPage] = useState(1);
 
   const onSearch = (query: string) => {
     setSearch(query);
