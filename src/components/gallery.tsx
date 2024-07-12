@@ -18,10 +18,10 @@ export const Gallery = () => {
   };
 
   const { data } = useQuery({
-    queryKey: ["images", search],
+    queryKey: ["images", search, page],
     queryFn: async () => {
       const response = await fetch(
-        `https://api.unsplash.com/search/photos?query=${search}`,
+        `https://api.unsplash.com/search/photos?query=${search}&page=${page}`,
         {
           headers: {
             Authorization: `Client-ID ${import.meta.env.VITE_API_KEY}`,
@@ -31,7 +31,6 @@ export const Gallery = () => {
       return response.json();
     },
   });
-  console.log(page);
   return (
     <>
       <Search onSearch={onSearch} />
