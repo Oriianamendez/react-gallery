@@ -26,7 +26,7 @@ export const Gallery = () => {
           headers: {
             Authorization: `Client-ID ${import.meta.env.VITE_API_KEY}`,
           },
-        }
+        },
       );
       return response.json();
     },
@@ -49,7 +49,9 @@ export const Gallery = () => {
           <p>Nothing here</p>
         )}
       </div>
-      <button onClick={() => setPage(page - 1)}>Prev</button>
+      <button disabled={page == 1} onClick={() => setPage(page - 1)}>
+        Prev
+      </button>
       <button onClick={() => setPage(page + 1)}>Next</button>
     </>
   );
