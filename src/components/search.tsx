@@ -7,11 +7,12 @@ type Props = {
 export const Search = ({ onSearch }: Props) => {
   const [input, setInput] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     onSearch(input);
   };
   return (
-    <form action="">
+    <form onSubmit={(e) => handleSubmit(e)}>
       <input
         type="text"
         name=""
@@ -20,9 +21,7 @@ export const Search = ({ onSearch }: Props) => {
           setInput(e.target.value);
         }}
       />
-      <button type="button" onClick={() => handleSubmit()}>
-        Search
-      </button>
+      <button type="submit">Search</button>
     </form>
   );
 };
