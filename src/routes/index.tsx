@@ -5,5 +5,10 @@ export const Route = createFileRoute("/")({
 });
 
 const LandingPage = () => {
-  return <h1>Welcome to BB Gallery</h1>;
+  return (
+    <>
+      <h1>Welcome to BB Gallery</h1>
+      <a href="/gallery">To Gallery!</a>
+    </>
+  );
 };
